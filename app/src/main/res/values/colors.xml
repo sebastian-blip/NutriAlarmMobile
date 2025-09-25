@@ -1,0 +1,8 @@
+<resources>
+    <color name="nutri_red">#F44F24</color>
+    <color name="nutri_blue">#B5E9F7</color>
+    <color name="nutri_dark_blue">#052C3C</color>
+    <color name="nutri_gray">#252525</color>
+    <color name="nutri_bg">#FFF6F4</color>
+    <color name="white">#FFFFFF</color>
+</resources>
