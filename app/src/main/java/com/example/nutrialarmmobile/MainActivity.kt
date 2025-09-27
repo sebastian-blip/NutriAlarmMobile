@@ -7,6 +7,7 @@ import androidx.navigation.compose.*
 import com.example.nutrialarmmobile.ui.screens.WelcomeScreen
 import com.example.nutrialarmmobile.ui.screens.RegisterScreen
 import com.example.nutrialarmmobile.ui.screens.AboutYouScreen
+import com.example.nutrialarmmobile.ui.screens.HomeScreen
 import com.example.nutrialarmmobile.ui.theme.NutriAlarmTheme
 
 class MainActivity : ComponentActivity() {
@@ -32,8 +33,17 @@ class MainActivity : ComponentActivity() {
                     composable("aboutyou") {
                         AboutYouScreen(
                             onContinueClick = { /* siguiente acción */ },
-                            onOptionClick = { /* acción según opción */ }
+                            onOptionClick = { /* acción según opción */ },
+                            onNoSelected = {
+                                // Aquí ejecutas la navegación al Home
+                                navController.navigate("home")
+                            }
                         )
+                    }
+
+                    // Nueva ruta para HomeScreen
+                    composable("home") {
+                        HomeScreen()
                     }
                 }
             }

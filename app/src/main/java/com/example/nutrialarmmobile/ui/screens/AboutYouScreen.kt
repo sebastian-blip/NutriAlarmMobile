@@ -1,9 +1,7 @@
 package com.example.nutrialarmmobile.ui.screens
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -27,7 +25,8 @@ import com.example.nutrialarmmobile.ui.theme.White
 @Composable
 fun AboutYouScreen(
     onContinueClick: () -> Unit,
-    onOptionClick: (option: String) -> Unit
+    onOptionClick: (option: String) -> Unit,
+    onNoSelected: () -> Unit
 ) {
     var showModal by remember { mutableStateOf(false) }
     Surface(
@@ -125,7 +124,10 @@ fun AboutYouScreen(
                 show = showModal,
                 onDismiss = { showModal = false },
                 onYes = { /* Acción para Sí */ showModal = false },
-                onNo = { /* Acción para No */ showModal = false }
+                onNo = {
+                    showModal = false
+                    onNoSelected() // Llama al callback
+                }
             )
         }
     }
