@@ -15,6 +15,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.nutrialarmmobile.R
+import com.example.nutrialarmmobile.ui.theme.NutriRed
 
 
 @Composable
@@ -34,7 +35,7 @@ fun AlarmScreen(navController: NavController) {
                 Icon(
                     painter = painterResource(R.drawable.ic_alarm),
                     contentDescription = null,
-                    tint = Color(0xFFFF5722),
+                    tint = NutriRed,
                     modifier = Modifier.size(28.dp)
                 )
                 Spacer(modifier = Modifier.width(8.dp))
@@ -47,7 +48,6 @@ fun AlarmScreen(navController: NavController) {
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            // Sección Agregar alarma
             Text("Agregar alarma", fontWeight = FontWeight.Bold, fontSize = 18.sp)
             Spacer(modifier = Modifier.height(8.dp))
             OutlinedTextField(
@@ -57,7 +57,7 @@ fun AlarmScreen(navController: NavController) {
                 modifier = Modifier.fillMaxWidth(),
                 trailingIcon = {
                     Icon(
-                        painter = painterResource(R.drawable.ic_recommendations), //icono close
+                        painter = painterResource(R.drawable.ic_recommendations),
                         contentDescription = null
                     )
                 }
@@ -89,7 +89,7 @@ fun AlarmScreen(navController: NavController) {
                         ) {
                             Text("20", fontWeight = FontWeight.Bold)
                         }
-                        // Minutos
+
                         Box(
                             modifier = Modifier
                                 .size(width = 60.dp, height = 60.dp)
