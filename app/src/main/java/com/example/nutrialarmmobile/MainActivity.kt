@@ -7,6 +7,7 @@ import androidx.navigation.compose.*
 import com.example.nutrialarmmobile.ui.screens.WelcomeScreen
 import com.example.nutrialarmmobile.ui.screens.RegisterScreen
 import com.example.nutrialarmmobile.ui.screens.AboutYouScreen
+import com.example.nutrialarmmobile.ui.screens.AlarmScreen
 import com.example.nutrialarmmobile.ui.screens.HomeScreen
 import com.example.nutrialarmmobile.ui.theme.NutriAlarmTheme
 
@@ -26,7 +27,6 @@ class MainActivity : ComponentActivity() {
                     composable("register") {
                         RegisterScreen(
                             onContinueClick = { name, email, pass, confirmPass ->  navController.navigate("aboutyou")
-                                // Aquí manejas el registro
                             }
                         )
                     }
@@ -35,15 +35,17 @@ class MainActivity : ComponentActivity() {
                             onContinueClick = { /* siguiente acción */ },
                             onOptionClick = { /* acción según opción */ },
                             onNoSelected = {
-                                // Aquí ejecutas la navegación al Home
                                 navController.navigate("home")
                             }
                         )
                     }
 
-                    // Nueva ruta para HomeScreen
                     composable("home") {
-                        HomeScreen()
+                        HomeScreen(navController)
+                    }
+
+                    composable("alarm") {
+                        AlarmScreen(navController)
                     }
                 }
             }

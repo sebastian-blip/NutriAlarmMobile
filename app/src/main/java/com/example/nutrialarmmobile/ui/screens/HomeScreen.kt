@@ -18,13 +18,14 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.nutrialarmmobile.R
 import com.example.nutrialarmmobile.ui.theme.RobotoFontFamily
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(navController: NavController) {
     Scaffold(
-        bottomBar = { BottomNavigationBar() },
+        bottomBar = { BottomNavigationBar(navController) },
         containerColor = Color(0xFFFFFAFA)
     ) { paddingValues ->
         Column(
@@ -41,7 +42,7 @@ fun HomeScreen() {
             Spacer(modifier = Modifier.height(16.dp))
             ActionsSection()
             Spacer(modifier = Modifier.height(16.dp))
-            CrearAlarmaButton()
+            CrearAlarmaButton(navController)
         }
     }
 }
@@ -188,9 +189,9 @@ fun ActionCard(
 }
 
 @Composable
-fun CrearAlarmaButton() {
+fun CrearAlarmaButton(navController: NavController) {
     Button(
-        onClick = { /* Acción */ },
+        onClick = { navController.navigate("alarm") },  // <-- Navega a AlarmScreen
         modifier = Modifier
             .fillMaxWidth()
             .height(48.dp),
@@ -207,26 +208,31 @@ fun CrearAlarmaButton() {
     }
 }
 
+
 @Composable
-fun BottomNavigationBar() {
+fun BottomNavigationBar(navController: NavController) {
     NavigationBar(containerColor = Color.White) {
         NavigationBarItem(
             selected = true,
-            onClick = { /* Acción */ },
+            onClick = { /* inicio */ },
             icon = { Icon(painterResource(R.drawable.ic_home), contentDescription = null) },
             label = { Text("Inicio") }
         )
         NavigationBarItem(
             selected = false,
-            onClick = { /* Acción */ },
+            onClick = { /* recomendaciones */ },
             icon = { Icon(painterResource(R.drawable.ic_recommendations), contentDescription = null) },
             label = { Text("Recomendaciones") }
         )
         NavigationBarItem(
             selected = false,
-            onClick = { /* Acción */ },
+            onClick = {
+                navController.navigate("alarm")  // <-- Navega a AlarmScreen
+            },
             icon = { Icon(painterResource(R.drawable.ic_alarm), contentDescription = null) },
             label = { Text("Alarmas") }
         )
     }
 }
+
+
