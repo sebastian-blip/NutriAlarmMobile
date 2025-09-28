@@ -120,13 +120,13 @@ fun AlarmNoteInput(
             fontSize = 14.sp,
             fontWeight = FontWeight.SemiBold
         )
-        Spacer(modifier = Modifier.height(4.dp))
+        Spacer(modifier = Modifier.height(6.dp))
         Row(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier
                 .fillMaxWidth()
                 .background(BackgroundBlueCards, RoundedCornerShape(8.dp))
-                .padding(horizontal = 12.dp, vertical = 8.dp)
+                .padding(horizontal = 12.dp, vertical = 12.dp)
         ) {
             BasicTextField(
                 value = note,
@@ -165,8 +165,7 @@ fun DateTimeSelectionCard() {
         contentAlignment = Alignment.Center
     ) {
         Card(
-            modifier = Modifier
-                .fillMaxWidth(0.75f),
+            modifier = Modifier.fillMaxWidth(0.75f),
             shape = RoundedCornerShape(12.dp),
             colors = CardDefaults.cardColors(containerColor = BlueGeneralText)
         ) {
@@ -174,7 +173,6 @@ fun DateTimeSelectionCard() {
                 modifier = Modifier.padding(12.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                // Título más pequeño
                 Text(
                     "Selecciona fecha y hora",
                     color = Color.White,
@@ -184,18 +182,21 @@ fun DateTimeSelectionCard() {
 
                 Spacer(modifier = Modifier.height(8.dp))
 
-                // Hora y AM/PM
                 Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                    val totalHeight = 70.dp   // 🔽 más bajo que antes
+                    val halfHeight = totalHeight / 2
+
                     // Cuadro hora
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
                         Box(
                             modifier = Modifier
-                                .size(width = 48.dp, height = 48.dp)
+                                .width(60.dp)
+                                .height(totalHeight)
                                 .clip(RoundedCornerShape(6.dp))
                                 .background(NutriBlueAccent),
                             contentAlignment = Alignment.Center
                         ) {
-                            Text("20", fontWeight = FontWeight.Bold, fontSize = 16.sp)
+                            Text("20", fontWeight = FontWeight.Bold, fontSize = 32.sp, color = Color.White)
                         }
                         Spacer(modifier = Modifier.height(2.dp))
                         Text("Hora", color = Color.White, fontSize = 12.sp)
@@ -205,12 +206,13 @@ fun DateTimeSelectionCard() {
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
                         Box(
                             modifier = Modifier
-                                .size(width = 48.dp, height = 48.dp)
+                                .width(60.dp)
+                                .height(totalHeight)
                                 .clip(RoundedCornerShape(6.dp))
                                 .background(Color.White),
                             contentAlignment = Alignment.Center
                         ) {
-                            Text("00", fontWeight = FontWeight.Bold, fontSize = 16.sp, color = Color.Black)
+                            Text("00", fontWeight = FontWeight.Bold, fontSize = 32.sp, color = Color.Black)
                         }
                         Spacer(modifier = Modifier.height(2.dp))
                         Text("Minutos", color = Color.White, fontSize = 12.sp)
@@ -221,18 +223,24 @@ fun DateTimeSelectionCard() {
                         Button(
                             onClick = {},
                             shape = RoundedCornerShape(6.dp),
-                            contentPadding = PaddingValues(horizontal = 8.dp, vertical = 2.dp),
+                            modifier = Modifier
+                                .width(60.dp)
+                                .height(halfHeight),
+                            contentPadding = PaddingValues(0.dp),
                             colors = ButtonDefaults.buttonColors(containerColor = NutriBlueAccent)
-                        ) { Text("AM", fontSize = 12.sp) }
+                        ) { Text("AM", fontSize = 14.sp, color = Color.White) }
 
-                        Spacer(modifier = Modifier.height(2.dp))
+                        Spacer(modifier = Modifier.height(4.dp))
 
                         Button(
                             onClick = {},
                             shape = RoundedCornerShape(6.dp),
-                            contentPadding = PaddingValues(horizontal = 8.dp, vertical = 2.dp),
+                            modifier = Modifier
+                                .width(60.dp)
+                                .height(halfHeight),
+                            contentPadding = PaddingValues(0.dp),
                             colors = ButtonDefaults.buttonColors(containerColor = Color.White)
-                        ) { Text("PM", fontSize = 12.sp, color = Color.Black) }
+                        ) { Text("PM", fontSize = 14.sp, color = Color.Black) }
                     }
                 }
 

@@ -24,6 +24,9 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.nutrialarmmobile.R
 import com.example.nutrialarmmobile.ui.theme.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowForward
+import androidx.compose.material.icons.filled.ChevronRight
 
 @Composable
 fun HomeScreen(navController: NavController) {
@@ -109,10 +112,10 @@ fun NotifyRecommendation() {
             )
             Spacer(modifier = Modifier.width(4.dp))
             Icon(
-                painter = painterResource(R.drawable.ic_alarm),
+                imageVector = Icons.Filled.ChevronRight,
                 contentDescription = "Ir a recomendación",
-                tint = Color(0xFFFFA500),
-                modifier = Modifier.size(20.dp)
+                tint = NutriRed,
+                modifier = Modifier.size(40.dp)
             )
         }
 
