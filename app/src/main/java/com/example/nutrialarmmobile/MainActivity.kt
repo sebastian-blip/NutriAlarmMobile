@@ -9,6 +9,7 @@ import com.example.nutrialarmmobile.ui.screens.RegisterScreen
 import com.example.nutrialarmmobile.ui.screens.AboutYouScreen
 import com.example.nutrialarmmobile.ui.screens.AlarmScreen
 import com.example.nutrialarmmobile.ui.screens.HomeScreen
+import com.example.nutrialarmmobile.ui.screens.MenuCustomScreen
 import com.example.nutrialarmmobile.ui.theme.NutriAlarmTheme
 
 class MainActivity : ComponentActivity() {
@@ -46,6 +47,17 @@ class MainActivity : ComponentActivity() {
 
                     composable("alarm") {
                         AlarmScreen(navController)
+                    }
+
+                    composable(route = "menu") {
+                        MenuCustomScreen(
+                            onBack = { navController.popBackStack() },
+                            onCreateAlarm = { navController.navigate("alarm") },
+                            onOptionSelected = { option ->
+                                // aquí decides qué hacer con la opción seleccionada
+                                println("Opción seleccionada: $option")
+                            }
+                        )
                     }
                 }
             }

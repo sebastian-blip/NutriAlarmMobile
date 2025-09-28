@@ -2,6 +2,7 @@ package com.example.nutrialarmmobile.ui.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
@@ -47,7 +48,7 @@ fun HomeScreen(navController: NavController) {
                     .verticalScroll(rememberScrollState())
                     .padding(16.dp)
             ) {
-                CreaTuPlatoSection()
+                CreaTuPlatoSection(navController)
                 Spacer(modifier = Modifier.height(16.dp))
                 ComidasProgramadasSection()
                 Spacer(modifier = Modifier.height(16.dp))
@@ -129,7 +130,7 @@ fun NotifyRecommendation() {
 
 
 @Composable
-fun CreaTuPlatoSection() {
+fun CreaTuPlatoSection(navController: NavController) {
     Text(
         text = "Crea tu plato",
         style = Typography.titleLarge
@@ -137,14 +138,18 @@ fun CreaTuPlatoSection() {
     Spacer(modifier = Modifier.height(16.dp))
     Image(
         painter = painterResource(R.drawable.img_main_food),
-        contentDescription = null,
+        contentDescription = "Crea tu plato",
         modifier = Modifier
             .fillMaxWidth()
             .height(180.dp)
-            .clip(RoundedCornerShape(16.dp)),
+            .clip(RoundedCornerShape(16.dp))
+            .clickable {
+                navController.navigate("menu")
+            },
         contentScale = ContentScale.Crop
     )
 }
+
 
 @Composable
 fun ComidasProgramadasSection() {
