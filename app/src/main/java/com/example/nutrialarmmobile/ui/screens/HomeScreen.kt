@@ -28,7 +28,7 @@ import com.example.nutrialarmmobile.ui.theme.*
 fun HomeScreen(navController: NavController) {
     Scaffold(
         bottomBar = { BottomNavigationBar(navController) },
-        containerColor = Color.White
+        containerColor = BackgroundGlobal
     ) { paddingValues ->
         Column(
             modifier = Modifier
@@ -256,11 +256,9 @@ fun CrearAlarmaButton(navController: NavController) {
     }
 }
 
-
-
 @Composable
 fun BottomNavigationBar(navController: NavController) {
-    NavigationBar(containerColor = BackgroundRedCards) {
+    NavigationBar(containerColor = BackgroundRedLightCards) {
         val items = listOf(
             BottomNavItem("Inicio", R.drawable.ic_home) { navController.navigate("home") },
             BottomNavItem("Recomendaciones", R.drawable.ic_recommendations) {  },

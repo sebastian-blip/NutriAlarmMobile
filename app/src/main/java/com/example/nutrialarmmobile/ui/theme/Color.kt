@@ -12,6 +12,10 @@ val White = Color(0xFFFFFFFF)
 
 val NutriBlueAccent = Color(0xFF13BCF1)
 
-val BackgroundRedCards= Color(0xFFFFF6F5)
+val BackgroundRedCards= Color(0xFFFEC4BF)
 val BackgroundBlueCards= Color(0xFFE2F3FF)
 val BlueGeneralText= Color(0xFF012735)
+
+val BackgroundGlobal=Color (0xFFFFFAFA)
+
+val BackgroundRedLightCards= Color(0xFFFFF6F5)
